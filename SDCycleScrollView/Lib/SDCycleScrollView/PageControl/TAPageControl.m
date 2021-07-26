@@ -358,7 +358,7 @@ static CGSize const kDefaultDotSize = {8, 8};
         _dotSize = kDefaultDotSize;
         return _dotSize;
     }else if (self.currentDotImage && CGSizeEqualToSize(_dotSize, CGSizeZero) ){
-        _dotSize = self.currentDotImage.size
+        _dotSize = self.currentDotImage.size;
     }
     
     return _dotSize;
