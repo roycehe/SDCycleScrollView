@@ -136,7 +136,13 @@ NSString * const ID = @"SDCycleScrollViewCell";
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     _flowLayout = flowLayout;
     
-    UICollectionView *mainView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
+    UICollectionView *mainView = [[UICollectionView alloc]
+                                  initWithFrame:self.bounds collectionViewLayout:flowLayout];
+    if (@available(iOS 11.0, *)) {
+        mainView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
     mainView.backgroundColor = [UIColor clearColor];
     mainView.pagingEnabled = YES;
     mainView.showsHorizontalScrollIndicator = NO;
